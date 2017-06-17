@@ -9,9 +9,16 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar'%>
+
     <div class='container'>
+      <%= render 'layouts/navbar'%>
       <%= yield %>
+      <div><br></div>
+      <footer class='footer' style="background-color: #e3f2fd;">
+        <div class='container' style="text-align: center;">
+          <span style="font-size:9px">&copy;2017 DK Restaurant</span>
+        </div>
+      </footer>
     </div>
   </body>
 </html>

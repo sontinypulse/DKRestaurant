@@ -6,26 +6,13 @@
   <% end %>
 </ul>
 
-<% if params[:section] == nil %>
-  <% @top_food_items.each do |item| %>
-    <div class='card' >
-      <div class='card-block'>
-        <%= item.name %>
-      </div>
-      <div class='card-block'>
-        <%= image_tag(item.image_url, :size => "260x180")  %>
-      </div>
+<% @food_items.each do |item| %>
+  <div class='card' >
+    <div class='card-block'>
+      <%= item.name %>
     </div>
-  <% end %>
-<% else %>
-  <% @food_items.each do |item| %>
-    <div class='card' >
-      <div class='card-block'>
-        <%= item.name %>
-      </div>
-      <div class='card-block'>
-        <%= image_tag(item.image_url, :size => "260x180")  %>
-      </div>
+    <div class='card-block'>
+      <%= image_tag(item.image_url, :size => "260x180")  %>
     </div>
-  <% end %>
+  </div>
 <% end %>

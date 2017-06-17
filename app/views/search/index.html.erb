@@ -1,0 +1,10 @@
+<% @food_items.each do |item| %>
+  <div class='card' >
+    <div class='card-block'>
+      <%= item.name %>
+    </div>
+    <div class='card-block'>
+      <%= image_tag(item.image_url, :size => "260x180")  %>
+    </div>
+  </div>
+<% end %>

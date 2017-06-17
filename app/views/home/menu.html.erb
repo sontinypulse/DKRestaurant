@@ -1,0 +1,31 @@
+<ul class="nav nav-pills">
+  <% @sections.each do |section| %>
+    <li class="nav-item">
+      <%= link_to "#{section.name}", menu_path(section: section.id), class: "nav-link #{params[:section]} #{section.id} #{params[:section].to_s==section.id.to_s && 'active'}" %>
+    </li>
+  <% end %>
+</ul>
+
+<% if params[:section] == nil %>
+  <% @top_food_items.each do |item| %>
+    <div class='card' >
+      <div class='card-block'>
+        <%= item.name %>
+      </div>
+      <div class='card-block'>
+        <%= image_tag(item.image_url, :size => "260x180")  %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <% @food_items.each do |item| %>
+    <div class='card' >
+      <div class='card-block'>
+        <%= item.name %>
+      </div>
+      <div class='card-block'>
+        <%= image_tag(item.image_url, :size => "260x180")  %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

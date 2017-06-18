@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @food_items = FoodItem.all.order("created_at desc").last(5)
   end
 
   def contact_us

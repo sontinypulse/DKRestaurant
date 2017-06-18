@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'orders/new' => 'orders#new'
+  resources :orders
   get 'search' => 'search#index'
 
   resources :food_items

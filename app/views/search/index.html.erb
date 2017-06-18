@@ -1,10 +1,44 @@
-<% @food_items.each do |item| %>
-  <div class='card' >
-    <div class='card-block'>
-      <%= item.name %>
+<style>
+  #limheight {
+    -webkit-column-count: 2;
+       -moz-column-count: 2;
+            column-count: 2; /*3 in those rules is just placeholder -- can be anything*/
+  }
+  #limheight li {
+    display: inline-block; /*necessary*/
+  }
+</style>
+
+<% @food_items.each.with_index do |item, index| %>
+  <% if index.even? %>
+    <div class="row">
+       <div class="col-lg-6">
+         <div class="card">
+           <div class="card-block">
+             <h4 class="card-title"><%= link_to item.name, food_item_path(id: item.id) %></h4>
+             <p class="card-text"><%= CurrencyUtil.to_currency(item.price) %></p>
+             <p class="card-text"><%= image_tag(item.image_url, :size => "260x180")  %></p>
+             <%= form_tag(orders_new_path, :method => "post", id: "search-form", :class => 'form-inline my-2 my-lg-0' ) do %>
+             <%= hidden_field_tag :food_item, item.id%>
+             <%= submit_tag "Order Now", class: "btn btn-secondary" %>
+             <% end %>
+           </div>
+         </div>
+       </div>
+  <% else %>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-block">
+            <h4 class="card-title"><%= link_to item.name, food_item_path(id: item.id) %></h4>
+            <p class="card-text"><%= CurrencyUtil.to_currency(item.price) %></p>
+            <p class="card-text"><%= image_tag(item.image_url, :size => "260x180")  %></p>
+            <%= form_tag(orders_new_path, :method => "post", id: "search-form", :class => 'form-inline my-2 my-lg-0' ) do %>
+            <%= hidden_field_tag :food_item, item.id%>
+            <%= submit_tag "Order Now", class: "btn btn-secondary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class='card-block'>
-      <%= image_tag(item.image_url, :size => "260x180")  %>
-    </div>
-  </div>
+  <% end %>
 <% end %>

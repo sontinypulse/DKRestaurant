@@ -6,5 +6,9 @@
     <p class="card-text"><%= @food_item.description %></p>
     <p class="card-text"><%= @food_item.price %> VND</p>
     <p class="card-text"><%= image_tag(@food_item.image_url, :size => "460x360")  %></p>
+    <%= form_tag(orders_new_path, :method => "post", id: "search-form", :class => 'form-inline my-2 my-lg-0' ) do %>
+    <%= hidden_field_tag :food_item, @food_item.id%>
+    <%= submit_tag "Order Now", class: "btn btn-secondary" %>
+    <% end %>
   </div>
 </div>

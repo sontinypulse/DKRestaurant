@@ -1,0 +1,49 @@
+<%= link_to 'Back to Menu Page', menu_path, class: 'form-control' %>
+<div class="card">
+  <span style="font-size:20px"><%= notice %></span>
+  <div class="card-block">
+    <p>
+      <strong>Name:</strong>
+      <%= @order.customer_name %>
+    </p>
+
+    <p>
+      <strong>Address:</strong>
+      <%= @order.customer_address %>
+    </p>
+
+    <p>
+      <strong>Phone:</strong>
+      <%= @order.customer_phone %>
+    </p>
+  </div>
+
+  <div class="card-block">
+    <p>
+      <strong>Item Name:</strong>
+      <%= @order.food_item.name %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= CurrencyUtil.to_currency(@order.food_item.price) %>
+    </p>
+
+    <p>
+      <strong>Quantity:</strong> 1
+    </p>
+
+    <p>
+      <strong>Delivery Cost: </strong><%= CurrencyUtil.to_currency(20000)%>
+    </p>
+    <p>
+      <strong>Total Cost:</strong>
+      <%= CurrencyUtil.to_currency(@order.food_item.price + 20000) %>
+    </p>
+
+    <p>
+      <strong>Order Created At:</strong>
+      <%= @order.created_at.strftime("%A %H:%M [%b %d, %Y]") %>
+    </p>
+  </div>
+</div>

@@ -2,9 +2,9 @@ DK is a Ruby on Rails restaurant website let users order foods.
 
 Submitted by: Son DANG
 
-Time spent: **XX** hours spent in total
+Time spent: 8 hours spent in total
 
-URL: **heroku-app-url**
+URL: https://pacific-sands-88668.herokuapp.com/
 
 ## User Stories
 
